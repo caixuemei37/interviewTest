@@ -1,8 +1,8 @@
-import interview.test3.*;
+import interviewTest.test3.*;//need to import test3
 
 public class testForTest3 {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) {
 		// create a LUN
 		test3 testing = new test3();
 		LUN lun0 = new LUN();
