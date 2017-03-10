@@ -1,0 +1,52 @@
+import interview.test3.*;
+
+public class casesForTest3 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// create a LUN
+		test3 testing = new test3();
+		LUN lun0 = new LUN();
+		lun0.setId(0);
+		lun0.setSize(10240);
+		lun0.setLabel("LUN0");
+		testing.create(lun0);
+
+		if (lun0.getSize() == 10240 && (lun0.getLabel().equals("LUN0"))) {
+			System.out.println("create LUN passed");
+		} else {
+			System.out.println("failed");
+		}
+
+		// retrieve information
+		if (testing.get(0).getSize() == 10240
+				&& testing.get(0).getLabel().equals("LUN0")) {
+			System.out.println("id: 0");
+			System.out.println("size: " + testing.get(0).getSize());
+			System.out.println("lable: " + testing.get(0).getLabel());
+			System.out.println("retrieve info LUN passed");
+		} else {
+			System.out.println("failed");
+		}
+
+		// Update size
+		LUN update = new LUN();
+		update.setSize(204800);
+		update.setLabel("LUNupdate");
+		testing.update(0, update);
+		if (testing.get(0).getSize() == 204800
+				&& (testing.get(0).getLabel().equals("LUNupdate"))) {
+			System.out.println("id: 0");
+			System.out.println("size: " + testing.get(0).getSize());
+			System.out.println("lable: " + testing.get(0).getLabel());
+			System.out.println("Update LUN passed");
+		} else {
+			System.out.println("failed");
+		}
+
+		// Delete LUN
+		testing.delete(0);
+		// Make sure no such LUN
+		testing.get(0);
+
+	}
+}
