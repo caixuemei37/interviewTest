@@ -1,0 +1,48 @@
+Test 2
+
+1. Create one or multiple LUN's and verify LUN is created successfully.
+-Create one LUN, then through tools or command to check the LUN is added to the system. If not, a reboot maybe required.
+-Create multiple LUN, then through tools or command to check the LUN is added to the system. If not, a reboot maybe required.
+-Create duplicate name of LUN that name is already existed.
+-Create one new same name LUN after remove it.
+-Create LUN when no space.
+
+2. Resize(expand) a LUN
+-resize the LUN to different size, verify the LUN is resized as expected, check system file or using tool
+-expand the LUN to invalid size, check the behavior is expected or not.
+-expand the LUN when some application is using it. Verify the behavior.
+-verify resize the LUN that the configuration is multipath or storage group of LUN, verify the behavior
+-expand the LUN to be higher of limit size, verify the behavior
+
+3. Export a LUN to a host.
+-Export a LUN to a host, and verify on this host, the LUN is displayed correctly, and it can be used.
+-Export LUN to a host again after the LUN is un-export
+-Export LUN to a another host, and make sure the LUN can be used.
+-Export multiple LUN to a host
+
+4. Un-export a LUN
+-Un-export the LUN when the LUN is in use. Verify on the host, can not see the LUN. 
+-Un-export the LUN when the LUN is not used.
+-Un-export multiple LUN from host
+
+5. Remove a LUN
+-Stop all file access to the LUN to be removed and umount the filesystem if applicable. Remove the LUN, through tool or command to check the LUN to be deleted.
+-Remove related paths or id of LUN if need.
+-Ensure the LUN is disappeared of output when check the LUN list
+-Remove the LUN of multipath or storage group config and verify the behavior
+-Remove the LUN when application is using it.
+-Remove the LUN that only create and it is not not exported
+
+6. Retrieve the information (size) of a LUN --- how to get LUN's information
+-Get the information of LUN using tools or command, verify the name, size or other infor is correct
+-After resize LUN, retrieve the information again, and make sure the size is changed.
+-Retrieve the information of a LUN that is export status or un-export status
+
+7. Concurrent requests is supported
+-Using tool or create small scripts send multiple requests at the same time, verify the behavior. Such as create, remove, export, un-export LUN
+-Testing different concurrent requests or according to actual customer's env
+
+8. Performance is not impacted no matter how many LUN’s are created and exported
+-Using tools or write a small scripts to create small size LUN, export it for looping x, and check the performance, such as no core, or crash
+-On different server, test same operation to get the results, compare the results.
+-On same server, using different software or tool to test same function, compare the results
