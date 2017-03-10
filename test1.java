@@ -1,5 +1,3 @@
-package interview;
-
 public class test1 {
 	
 	static ListNode node;
