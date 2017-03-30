@@ -22,8 +22,8 @@ public class file2 {
 		for (int i = 0; i < files.length; i++) {
 			tempFile = files[i];
 			if (tempFile.isDirectory()) {
-				// String newPath = path + "/" +tempFile.getName();
-				// findFile(newPath, targetName, resultList);
+				String newPath = path + "/" +tempFile.getName();
+				findFile(newPath, targetName, resultList);
 			} else if (tempFile.isFile()) {
 				tempName = tempFile.getName();
 				if (!(tempName.indexOf(targetName) == -1)) {
