@@ -20,21 +20,29 @@ public class numbers7 {
 
 	public static int getPoint(int[] array) {
 		int getPoint = -1;
+		int sum = 0;
 		int[] sumLeft = new int[array.length - 1];
-		int[] sumRight = new int[array.length - 1];
+		int tempRight = 0;
+		
+		for(int i = 0; i<array.length; i++){
+			sum=sum+array[i];
+		}
+		
+		System.out.println("sum = "+ sum);
 
 		sumLeft[0] = array[0];
-		sumRight[array.length - 2] = array[array.length - 1];
-
-		for (int i = sumRight.length - 2; i >= 0; i--) {
-			sumRight[i] = sumRight[i + 1] + array[i + 1];
+		if(sumLeft[0]== sum-sumLeft[0]){
+			System.out.println("found");
+			getPoint = 0;
 		}
-		for (int i = 1; i < sumLeft.length - 1; i++) {
-			sumLeft[i] = sumLeft[i - 1] + array[i];
-		}
-		for (int i = 0; i < sumLeft.length - 1; i++) {
-			if (sumLeft[i] == sumRight[i]) {
+		
+		for(int i =1; i< sumLeft.length - 1; i++){
+			sumLeft[i] = sumLeft[i-1] + array[i];
+			tempRight = sum - sumLeft[i]; 
+			if(sumLeft[i]==tempRight){
+				System.out.println("found");
 				getPoint = i;
+				break;
 			}
 		}
 		return getPoint;
